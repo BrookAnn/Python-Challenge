@@ -26,3 +26,8 @@ count = 0
 
 #Open csv
 with open(PyBankcsv) as Bank_file :
+
+#Open csv with new path PyBankcsv
+with open(PyBankcsv, newline="") as csvfile:
+csvreader = csv.reader(csvfile, delimiter=",")
+csv_header = next(csvreader)
