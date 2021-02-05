@@ -4,15 +4,14 @@
 # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 # Create the greatest increase in profits (date and amount) over the entire period
 # Create the greatest decrease in losses (date and amount) over the entire period
-# Make final script should both print the analysis to the terminal and export a text file with the results.
-----------------------------------------------------------------------------------------------------------------------
+# Make final script should both print the analysis to the terminal and export a text file with with the results.
 
 # Import both the os and csv
 import os
 import csv
 
 # Make the place for the csv file for PyBank
-PyBankcsv = os.path.join("Resources","budget_data.csv")
+PyBankcsv = os.path.join("Resources/budget_data.csv")
 
 # Make a place for the the data
 profit = []
@@ -27,4 +26,3 @@ count = 0
 
 #Open csv
 with open(PyBankcsv) as Bank_file :
-
