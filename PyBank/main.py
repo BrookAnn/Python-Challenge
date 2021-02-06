@@ -24,10 +24,15 @@ total_profit = 0
 total_change_profits = 0
 count = 0
 
-#Open csv
-with open(PyBankcsv) as Bank_file :
-
 #Open csv with new path PyBankcsv
 with open(PyBankcsv, newline="") as csvfile:
-csvreader = csv.reader(csvfile, delimiter=",")
-csv_header = next(csvreader)
+    csvreader = csv.reader(csvfile, delimiter=",")
+    csv_header = next(csvreader)
+
+    #Start Loop for months
+    for i in csvreader:
+        count = count + 1
+
+print(count)
+
+
