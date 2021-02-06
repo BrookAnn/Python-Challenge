@@ -15,13 +15,12 @@ PyBankcsv = os.path.join("Resources/budget_data.csv")
 
 # Make a place for the the data
 profit = []
-monthly_changes = []
 date = []
 
 # Input variables
 initial_profit = 0
 total_profit = 0
-total_change_profits = 0
+total_change_profits = []
 count = 0
 
 #Open csv with new path PyBankcsv
@@ -32,7 +31,24 @@ with open(PyBankcsv, newline="") as csvfile:
     #Start Loop for months
     for i in csvreader:
         count = count + 1
+        profit.append(int( i[1]))
+        date.append (i[0])
+    for j in profit:
+        total_profit = total_profit + j
+    for k in range (1,len(profit)):
+        total_change_profits.append(int(profit[k]) - int (profit[k-1]))
 
-print(count)
+    averagechange = sum(total_change_profits) / len(total_change_profits)
+    
+    increase_profits = max(total_change_profits)
+    decrease_profits = min(total_change_profits)
+    maximum_date = date [total_change_profits.index(increase_profits)+1]
+    decrease_date = date [total_change_profits.index(decrease_profits)+1]
 
-
+    #Start Profit and Losses over period
+    print(f"totalmonth:{count}")
+    #print (profit)
+    print (f"totalprofit:{total_profit}")
+    print (f"averagechange:{round(averagechange,2)}")
+    print (f"increase_profits{(maximum_date)}{increase_profits}")
+    print (f"decrease_profits{(decrease_date)}{decrease_profits}")
