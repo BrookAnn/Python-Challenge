@@ -5,9 +5,13 @@
 # Create the total number of votes each candidate won
 # Create the winner of the election based on popular vote
 
+#---------------------------------------------------------------------------------------------------------
+
 # Import both the os and csv
 import os
 import csv
+
+#---------------------------------------------------------------------------------------------------------
 
 # Make the place for the csv file for PyPoll
 PyPollcsv = os.path.join("Resources/election_data.csv")
@@ -19,5 +23,7 @@ candidate_list = []
 unique_candidate = []
 count = 0
 
+#----------------------------------------------------------------------------------------------------------
+
 # Open csv
-with open(PyPollcsv) as Bank_file :
+#with open(PyPollcsv) as Bank_file :
