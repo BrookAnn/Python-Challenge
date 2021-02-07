@@ -6,12 +6,16 @@
 # Create the greatest decrease in losses (date and amount) over the entire period
 # Make final script should both print the analysis to the terminal and export a text file with with the results.
 
+#---------------------------------------------------------------------------------------------------------------------------
+
 # Import both the os and csv
 import os
 import csv
 
 # Make the place for the csv file for PyBank
 PyBankcsv = os.path.join("Resources/budget_data.csv")
+
+#----------------------------------------------------------------------------------------------------------------------------
 
 # Make a place for the the data
 profit = []
@@ -23,10 +27,14 @@ total_profit = 0
 total_change_profits = []
 count = 0
 
+#-----------------------------------------------------------------------------------------------------------------------------
+
 #Open csv with new path PyBankcsv
 with open(PyBankcsv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
+
+#-----------------------------------------------------------------------------------------------------------------------------
 
     #Start Loop for months
     for i in csvreader:
@@ -38,17 +46,30 @@ with open(PyBankcsv, newline="") as csvfile:
     for k in range (1,len(profit)):
         total_change_profits.append(int(profit[k]) - int (profit[k-1]))
 
+#------------------------------------------------------------------------------------------------------------------------------
+
+    #New Variables
     averagechange = sum(total_change_profits) / len(total_change_profits)
-    
     increase_profits = max(total_change_profits)
     decrease_profits = min(total_change_profits)
     maximum_date = date [total_change_profits.index(increase_profits)+1]
     decrease_date = date [total_change_profits.index(decrease_profits)+1]
 
-    #Start Profit and Losses over period
+#-------------------------------------------------------------------------------------------------------------------------------
+
+    #Print Profit
     print(f"totalmonth:{count}")
-    #print (profit)
-    print (f"totalprofit:{total_profit}")
-    print (f"averagechange:{round(averagechange,2)}")
-    print (f"increase_profits{(maximum_date)}{increase_profits}")
-    print (f"decrease_profits{(decrease_date)}{decrease_profits}")
+    print("Financial Analysis")
+    #Print Profit
+    print(f"totalprofit:{total_profit}")
+    print(f"averagechange:{round(averagechange,2)}")
+    print(f"increase_profits{(maximum_date)}{increase_profits}")
+    print(f"decrease_profits{(decrease_date)}{decrease_profits}")
+
+    with open('financial_analysis.txt', 'w') as text:
+      text.write(f"FinancialAnalysis")
+      text.write(f"totalmonth:{count}")
+      text.write(f"totalprofit:{total_profit}")
+      text.write(f"averagechange:{round(averagechange,2)}")
+      text.write(f"increase_profits{(maximum_date)}{increase_profits}")
+      text.write(f"decrease_profits{(decrease_date)}{decrease_profits}")
