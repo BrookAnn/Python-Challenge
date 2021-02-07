@@ -15,15 +15,36 @@ import csv
 
 # Make the place for the csv file for PyPoll
 PyPollcsv = os.path.join("Resources/election_data.csv")
+out_file="./Analysis/output.txt"
 
 # Make a place for the data
 vote_count = []
 vote_percent = []
 candidate_list = []
-unique_candidate = []
+winning_candidate = []
 count = 0
 
 #----------------------------------------------------------------------------------------------------------
 
 #Open csv
-#with open(PyPollcsv) as Bank_file :
+with open(PyPollcsv, newline="") as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+    csv_header = next(csvreader)
+
+    for i in csvreader:
+        count = count + 1
+        candidate_list.append(i[2])
+    for j in set(candidate_list):
+        winning_candidate.append(j)
+        k = candidate_list.count(j)
+        vote_count.append(k)
+        l = (k/count)*100
+        vote_percent.append(l)
+
+#Print Profit
+print(f"vote_count:")
+print(f"Financial Analysis")
+print(f"vote_percent:")
+print(f"candadite_list")
+print(f"winning_candidate")
+
