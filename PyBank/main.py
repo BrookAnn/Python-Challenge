@@ -14,6 +14,7 @@ import csv
 
 # Make the place for the csv file for PyBank
 PyBankcsv = os.path.join("Resources/budget_data.csv")
+out_file="./Analysis/output.txt"
 
 #----------------------------------------------------------------------------------------------------------------------------
 
@@ -66,9 +67,12 @@ with open(PyBankcsv, newline="") as csvfile:
     print(f"increase_profits{(maximum_date)}{increase_profits}")
     print(f"decrease_profits{(decrease_date)}{decrease_profits}")
 
+#--------------------------------------------------------------------------------------------------------------------------------
+
+    #Make Analysis
     with open('financial_analysis.txt', 'w') as text:
-      text.write(f"FinancialAnalysis")
       text.write(f"totalmonth:{count}")
+      text.write(f"FinancialAnalysis")
       text.write(f"totalprofit:{total_profit}")
       text.write(f"averagechange:{round(averagechange,2)}")
       text.write(f"increase_profits{(maximum_date)}{increase_profits}")
