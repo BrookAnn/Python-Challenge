@@ -23,6 +23,7 @@ out_file="./Analysis/output.txt"
 voter_id = []
 county = []
 candidate = []
+all_candidates = []
 #---------------------------------------------------------------------------------------------------------
 
 # Make variables
@@ -30,6 +31,7 @@ vote_count = []
 candidate_list = {"Candidate": [], "Votes": [], "Vote Perc": []}
 unique_candidate = ""
 count = 0
+percent = 0
 
 #----------------------------------------------------------------------------------------------------------
 
@@ -43,13 +45,13 @@ with open(PyPollcsv, newline="") as csvfile:
 #Start loop
     for i in csvreader:
         count = count + 1
-        candidate.append(i[2])
+        all_candidates.append(i[2])
 
         if i[2] not in candidate_list["Candidate"]:
             candidate_list["Candidate"].append(i[2])
 
     for j in candidate_list["Candidate"]:
-        candidate_list["Votes"].append(unique_candidate.count(j))
+        candidate_list["Votes"].append(all_candidates.count(j))
     for k in candidate_list["Votes"]:
         percent = (k/count)*100
         candidate_list["Vote Perc"].append(round(percent, 3))
@@ -63,9 +65,12 @@ with open(PyPollcsv, newline="") as csvfile:
 #Print
 print(f"Financial Analysis")
 print(f"vote_count:{(count)}")
+for l in candidate_list["Candidate"]:
+    index = candidate_list["Candidate"].index(l)
+    print(f"{l}: {candidate_list['Vote Perc'][index]}% ({candidate_list['Votes'][index]})")
+
 print(f"The winner is")
 print(f"unique_candidate: {unique_candidate}")
-
 
 #------------------------------------------------------------------------------------------------------------
 
