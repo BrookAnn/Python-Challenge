@@ -28,7 +28,7 @@ all_candidates = []
 
 # Make variables
 vote_count = []
-candidate_list = {"Candidate": [], "Votes": [], "Vote Perc": []}
+candidate_list = {"Candidate": [], "Votes": [], "Vote Percent": []}
 unique_candidate = ""
 count = 0
 percent = 0
@@ -54,7 +54,7 @@ with open(PyPollcsv, newline="") as csvfile:
         candidate_list["Votes"].append(all_candidates.count(j))
     for k in candidate_list["Votes"]:
         percent = (k/count)*100
-        candidate_list["Vote Perc"].append(round(percent, 3))
+        candidate_list["Vote Percent"].append(round(percent, 3))
 
     TopDog = max(candidate_list["Votes"])
     VoterDex = candidate_list["Votes"].index(TopDog)
@@ -67,7 +67,7 @@ print(f"Financial Analysis")
 print(f"vote_count:{(count)}")
 for l in candidate_list["Candidate"]:
     index = candidate_list["Candidate"].index(l)
-    print(f"{l}: {candidate_list['Vote Perc'][index]}% ({candidate_list['Votes'][index]})")
+    print(f"{l}: {candidate_list['Vote Percent'][index]}% ({candidate_list['Votes'][index]})")
 
 print(f"The winner is")
 print(f"unique_candidate: {unique_candidate}")
