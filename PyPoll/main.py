@@ -47,7 +47,7 @@ with open(PyPollcsv, newline="") as csvfile:
         unique_candidate.append(i[2])
 
         if i[2] not in candidate_list["Candidate"]:
-            candidate_list["Candidate"].append(i)[2]
+            candidate_list["Candidate"].append(i[2])
 
     for j in candidate_list["Candidate"]:
         candidate_list["Votes"].append(unique_candidate.count(j))
