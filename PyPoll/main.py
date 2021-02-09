@@ -28,9 +28,8 @@ candidate = []
 # Make variables
 vote_count = []
 candidate_list = {"Candidate": [], "Votes": [], "Vote Perc": []}
-unique_candidate = []
+unique_candidate = ""
 count = 0
-win = 0
 
 #----------------------------------------------------------------------------------------------------------
 
@@ -44,7 +43,7 @@ with open(PyPollcsv, newline="") as csvfile:
 #Start loop
     for i in csvreader:
         count = count + 1
-        unique_candidate.append(i[2])
+        candidate.append(i[2])
 
         if i[2] not in candidate_list["Candidate"]:
             candidate_list["Candidate"].append(i[2])
@@ -57,27 +56,22 @@ with open(PyPollcsv, newline="") as csvfile:
 
     TopDog = max(candidate_list["Votes"])
     VoterDex = candidate_list["Votes"].index(TopDog)
-    Winning = candidate_list["Candidate"][VoterDex]
-        #unique_candidate.append(j)
-        #k = candidate_list.count(j)
-        #vote_count.append(k)
-        #l = (k/count)*100
-
+    unique_candidate = candidate_list["Candidate"][VoterDex]
+        
  #-----------------------------------------------------------------------------------------------------------
 
-#Print Profit
+#Print
 print(f"Financial Analysis")
 print(f"vote_count:{(count)}")
-print("The winner is:")
-print(f"unique_candidate:{(candidate_list)}")
-#print(f"winning_candidate")
+print(f"The winner is")
+print(f"unique_candidate: {unique_candidate}")
+
 
 #------------------------------------------------------------------------------------------------------------
 
 #Make Analysis
-#with open('financial_analysis.txt', 'w') as text:
-    #text.write(f"vote_count:{count}")
-    #text.write(f"FinancialAnalysis")
-    #text.write(f"vote_percent:")
-    #text.write(f"candadite_list:")
-    #text.write(f"winning_candidate")
+with open('financial_analysis.txt', 'w') as text:
+    text.write(f"Financial Analysis")
+    text.write(f"vote_count:{(count)}")
+    text.write(f"The winner is")
+    text.write(f"unique_candidate: {unique_candidate}")
