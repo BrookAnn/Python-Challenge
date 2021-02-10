@@ -1,1 +1,6 @@
-FinancialAnalysistotalmonth:86totalprofit:38382578averagechange:-2315.12increase_profitsFeb-20121926159decrease_profitsSep-2013-2196167
+FinancialAnalysis
+totalmonth:86
+totalprofit:38382578
+averagechange:-2315.12
+increase_profitsFeb-20121926159
+decrease_profitsSep-2013-2196167

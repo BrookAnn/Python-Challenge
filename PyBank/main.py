@@ -71,9 +71,9 @@ with open(PyBankcsv, newline="") as csvfile:
 
     #Make Analysis
     with open('financial_analysis.txt', 'w') as text:
-      text.write(f"totalmonth:{count}")
-      text.write(f"FinancialAnalysis")
-      text.write(f"totalprofit:{total_profit}")
-      text.write(f"averagechange:{round(averagechange,2)}")
-      text.write(f"increase_profits{(maximum_date)}{increase_profits}")
+      text.write(f"FinancialAnalysis\n")
+      text.write(f"totalmonth:{count}\n")
+      text.write(f"totalprofit:{total_profit}\n")
+      text.write(f"averagechange:{round(averagechange,2)}\n")
+      text.write(f"increase_profits{(maximum_date)}{increase_profits}\n")
       text.write(f"decrease_profits{(decrease_date)}{decrease_profits}")
