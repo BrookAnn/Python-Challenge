@@ -1,1 +1,7 @@
-Financial Analysisvote_count:3521001The winner isunique_candidate: Khan
+Financial Analysis
+vote_count:3521001
+The winner is:Khan
+Khan: 63.0% (2218231)
+Correy: 20.0% (704200)
+Li: 14.0% (492940)
+O'Tooley: 3.0% (105630)

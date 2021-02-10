@@ -76,7 +76,10 @@ print(f"unique_candidate: {unique_candidate}")
 
 #Make Analysis
 with open('financial_analysis.txt', 'w') as text:
-    text.write(f"Financial Analysis")
-    text.write(f"vote_count:{(count)}")
+    text.write(f"Financial Analysis\n")
+    text.write(f"vote_count:{(count)}\n")
     text.write(f"The winner is")
-    text.write(f"unique_candidate: {unique_candidate}")
+    text.write(f":{unique_candidate}\n")
+    for l in candidate_list["Candidate"]:
+        index = candidate_list["Candidate"].index(l)
+        text.write(f"{l}: {candidate_list['Vote Percent'][index]}% ({candidate_list['Votes'][index]})\n")
